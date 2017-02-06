@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+	<meta content="yes" name="apple-mobile-web-app-capable" />
+	<meta content="black" name="apple-mobile-web-app-status-bar-style" /> 
+	<meta content="telephone=no" name="format-detection" /> 
+
+	<title>智能服务大厅满意度评价系统</title>
+	<link href="css/boilerplate.css" rel="stylesheet" type="text/css">
+	<link href="css/sweet-alert.css" rel="stylesheet" type="text/css">
+    <link href='css/4fc55ad7dfca484f9418ba597fd6a006.css' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="css/register.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/cooker.css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<style type="text/css">
+	.container{
+		max-width: 480px;
+	}
+	</style>
+</head>
+<body style="background:#c30d23; z-index: 1;">
+<div class="container">
+	<!-- <div id="audio_btn" class="video_exist off play_yinfu" style="display: block;">
+    <div id="yinfu" class="rotate"></div>
+    <audio loop src="music/bg_2.mp3" id="media" autoplay preload="preload"></audio>
+</div> -->
+    <!-- SAMPLE BOX CONFIGURATION MODAL FORM-->
+    <div class="modal fade" id="box-config" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" style="color:black;">请填写您的评价</h4>
+                </div>
+                <div class="modal-body" style="height: 200px;">
+                    <div class="form-group">
+                        <div>
+                            <textarea class="form-control" rows="5" id="txt"></textarea>
+                            <br />
+                            <a class="btn btn-primary" href="#divdialog" data-toggle="modal" style="text-align: center;" id="a5" title="点击录音">
+                                <!-- <span class="glyphicon glyphicon-globe"></span>-->
+                                <img src="picture/images.jpg" style="width: 30px;" />
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" id="btnyes">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /SAMPLE BOX CONFIGURATION MODAL FORM-->
+
+    <!-- SAMPLE BOX CONFIGURATION MODAL FORM-->
+    <div class="modal fade in" id="divdialog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">录音中...</h4>
+                </div>
+                <div class="modal-body" style="height:auto; text-align: center;">
+                    <div class="form-group">
+                        <div>
+                            <img src="picture/dtt.jpg" style="width:100%;" />
+                        </div>
+                    </div>
+                </div>
+                 <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" id="Button1">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /SAMPLE BOX CONFIGURATION MODAL FORM-->
+<!-- <div id="content_title1" class="fluid clearfix" >
+    <div class="content_title">
+        参与评价
+    </div>
+</div> -->
+
+<div class="clearfix"></div>
+<div id="content_list" class="gridContainer clearfix bounceInDown animated" style="width:100%;">
+    <div class="content_list_li">
+        <div class="content-list-li-header">
+            <div class="head-img">
+                <img src="images/img1.jpg" class="img img-respontive" alt="">
+            </div>
+            <div class="box-img">
+                <img src="images/zjz.jpg" alt="">
+            </div>
+        </div>
+        <div class="content-info text-center">
+            <p><strong>部门：</strong><span>市交警支队</span></p>
+            <p><strong>窗口：</strong><span>1</span></p>
+            <p><strong>工号：</strong><span>3001</span></p>
+            <p><strong>姓名：</strong><span>吴菲</span></p>
+            <p><strong>联系电话：</strong><span>0757-23833932</span></p>
+            <p><strong>业务：</strong><span>机动车业务</span></p>
+            <p>请在规定时间内对当前窗口业务员进行评价></p>
+        </div>
+        <div class="form-group clock" style="text-align: center; font-family: 'Microsoft YaHei'; font-size: 30px; margin-top:20px; display:none;color:black;" id="djs">
+			<div>
+	             倒计时：<span id="circlediv">10</span>
+	        </div>
+     	</div>
+     	<div class="modal fade" id="box-config2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="margin-top:100px;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title text-center" style="color:black;">请扫描二维码</h4>
+                </div>
+                <div class="modal-body" style="height: 320px;">
+                    <div class="form-group">
+                        <div class="text-center">
+                            
+                        <img src="images/two.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="gridContainer pj clearfix" style="z-index:99;">
+      <div id="div4" class="fluid" style="z-index:999;">
+        <a href="#box-config2" data-toggle="modal" class="go btn btn-primary" style="z-index:9999;color:black;">扫码评价</a>
+      </div>
+    </div>
+    
+    <div class="gridContainer pj clearfix" style="z-index:99;">
+      <div id="div4" class="fluid bot" style="z-index:999;">
+        <a  class="go btn btn-danger rippler rippler-default" id="go1" style="z-index:9999;color:black;">现场评价</a>
+      </div>
+    </div> 
+        <ul id="anniu" class="list-inline text-center" style="color:black;display:none;">
+            <li>
+                <button class="btn btn-defult" style="margin-bottom:15px;background:#f15f24;width:120px;" id="a1">
+                    <img src="images/fcmyi.jpg" alt="" style="width: 40px; margin-right:5px;">非常满意
+                </button>
+            </li>
+            <li>
+                <button class="btn btn-defult" style="margin-bottom:15px;background:#fdcb0a;width:120px;display:inline-block;" id="a2">
+                    <img src="images/manyi.jpg" alt="" style="width: 40px; margin-right:5px;">满意
+                </button>
+            </li>
+            <li>
+                <button class="btn btn-defult" style="background:#3ec1cb;width:120px;"  id="a3">
+                    <img src="images/yiban.jpg" alt="" style="width: 40px; margin-right:5px;">一般
+                </button>
+            </li>
+            <li>
+                <a href="#box-config" data-toggle="modal" class="btn btn-defult rippler rippler-inverse" style="background:#137091;width:120px;color:black;" id="a4">
+                    <img src="images/bumanyi.jpg" alt="" style="width: 40px; margin-right:5px;">不满意
+                </a>
+            </li>
+        </ul>
+        <!-- <div class="content_list_li_left">
+            <span><img src="images/img.jpg" ></span>
+        </div>
+        <div class="content_list_li_right">
+            <div class="content_list_li_right_li"><strong>编号：</strong>001</div>
+            <div class="content_list_li_right_li"><strong>姓名：</strong>张岱</div>
+            <div class="content_list_li_right_li_a"><a class="btn to t1" onClick="swal('投票成功!', '非常感谢,么么哒！', 'success')">投我吧</a><a class="btn to on" onClick="swal('您已为我投票，非常感谢！')">已投票</a></div>
+        </div> -->
+        <div class="clearfix"></div>
+    </div>
+</div>
+
+
+<div class="clearfix" style="height:2em;"></div>
+</div>
+
+<script src="js/jquery-2.0.3.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<!-- animsition js -->
+<script src="js/jquery.rippler.js"></script>
+<script src="js/respond.min.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/respond.min.js"></script>
+<script src="js/sweet-alert.min.js"></script>
+<script>
+// 
+ 		var num = 1;
+        var num2 = 10;
+        var clock;
+        var url = "http://113.108.222.98:12580/pingjia.ashx";
+
+        $(document).ready(function () {
+
+            //$(".rippler").rippler({
+            //    // addElement:"svg"
+            //});
+
+            //$('a[href^=#]').on('click', function () {
+            //    return false;
+            //});
+            var pj;
+            var pjcode;
+            $("#a1").click(function () {
+                pjcode = 1;
+                pj = '非常满意';
+                baocun(pj, "", pjcode);
+            });
+            $("#a2").click(function () {
+                pjcode = 2;
+                pj = '满意';
+                baocun(pj, "", pjcode);
+            });
+            $("#a3").click(function () {
+                pjcode = 3;
+                pj = '一般';
+                baocun(pj, "", pjcode);
+            });
+            $("#a4").click(function () {
+                pjcode = 4;
+                pj = '不满意';
+            });
+
+            $("#btnyes").on('click', function () {
+                var pjname = $("#txt").val();
+                var i;
+                baocun(pj, pjname, pjcode);
+            });
+
+            //var m1 = setInterval(dd, 1000);
+            //function dd() {
+            //    if (num2 == 0) {
+            //        location.href = "fangqi.html";
+            //    }
+            //    $("#circlediv").text(num2);
+            //    num2--;
+            //}
+
+            $("#Button1").click(function () {
+                alert('录音成功！');
+                $('#divdialog').modal('hide')
+            });
+
+        });
+		pingjia();
+		function pingjia () {
+			var num = 10;
+	        var clock;
+	        var url = "http://113.108.222.98:12580/pingjia.ashx";
+	        $(document).ready(function () {
+
+	            //$(".rippler").rippler({
+	            //    // addElement:"svg"
+	            //});
+
+	            //$('a[href^=#]').on('click', function () {
+	            //    return false;
+	            //});
+
+	            $("#go1").click(function () {
+	                $(this).hide();
+                    $(".pj").hide();
+	                $("#djs").show();
+                    $("#anniu").show();
+	                var timer = setInterval(function  () {
+                     if (num == 0) {
+                        pjcode = 5;
+                        pj = '放弃评价';
+                        baocun(pj, "", pjcode);
+                        location.href = "fangqi.html";
+                    }
+                    $("#circlediv").text(num);
+                    num--;
+                    },1000);
+                    // $("#go2").click(function () {                   
+                    //     $(".pj").hide();
+                    //     $(".clock").hide()
+                    //     $("#anniu").show();
+                    //    clearInterval(timer)
+                    // });
+	            });
+	            // function dd() {
+	                
+	            // }
+
+	        });
+
+		}
+
+        function baocun(pj, pjname, pjcode) {
+            $.ajax({
+                type: "GET",
+                async: false,
+                url: url,
+                beforeSend: function () {
+                    $("#btnyes").attr({ disabled: "disabled" });
+                    //$("#divdialog").show();
+                },
+                dataType: "jsonp",
+
+                data: "pj=" + pj + "&pjname=" + pjname + "&pjcode=" + pjcode,
+                jsonp: "callback",//传递给请求处理程序或页面的，用以获得jsonp回调函数名的参数名(一般默认为:callback)  
+                jsonpCallback: "callback",//自定义的jsonp回调函数名称，默认为jQuery自动生成的随机函数名，也可以写"?"，jQuery会自动为你处理数据  
+                success: function (json) {
+                    //alert(json.message);
+                    //clock = setInterval("daojishi()", 80);
+                    window.location.href = "success.html";
+                },
+                error: function () {
+                    //alert("fail");
+                },
+                complete: function () {
+
+                }
+            });
+        }
+
+        function daojishi() {
+            $("#knob").val(num);
+            if (num == 100) {
+                window.clearInterval(clock);
+                window.location.href = "success.html";
+            }
+            else {
+                num++;
+
+            }
+
+        }
+
+
+</script>	
+</body>
+</html>
